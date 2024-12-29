@@ -1,18 +1,20 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-
-type FormValues = {
-  username: string;
-  email: string;
-  channel: string;
-  phoneNumbers: string[];
-  phNumbers: [{number:''}],
-};
+import PlanDropdowns from './PlanDropDowns';
+import { response } from "../data/response";
+import { FormValues } from '../types/form';
 
 const YoutubeForm = () => {
   const form = useForm<FormValues>();
-  const { register, control, handleSubmit, formState } = form;
+  const { register, control, handleSubmit, formState, watch } = form;
   const { errors } = formState;
+  const socialOptions = [
+    "Twitter",
+    "Facebook",
+    "Instagram",
+    "YouTube",
+    "LinkedIn"
+  ];
   // const { name, ref, onChange, onBlur} = register('username')
    
  const {fields} = useFieldArray( {
@@ -70,6 +72,24 @@ const YoutubeForm = () => {
           />
           <p className="error">{errors.username?.message}</p>
         </div>
+        <div className="form-control">
+          <label htmlFor="social">Social Media</label>
+          <select {...register("social", { required: "Please select a platform" })}>
+            <option value="">Select a platform</option>
+            {socialOptions.map((platform) => (
+              <option key={platform} value={platform}>
+                {platform}
+              </option>
+            ))}
+          </select>
+          <p className="error">{errors.social?.message}</p>
+        </div>
+
+        <PlanDropdowns 
+          response={response} 
+          register={register}
+          watch={watch}
+        />
 
         <button>Submit</button>
         <DevTool control={control} />
