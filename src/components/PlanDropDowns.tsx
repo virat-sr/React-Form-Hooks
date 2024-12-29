@@ -21,9 +21,9 @@ const PlanDropdowns = ({ response, register, watch }: Props) => {
   return (
     <>
       <div className="form-control">
-        <label htmlFor="servicePlan">Service Plan:</label>
+        <label htmlFor="servicePlan">Select Membership Plan</label>
         <select {...register('servicePlan')}>
-          <option value="">Select a plan</option>
+          <option value="">Select Membership Plan</option>
           {servicePlans.map(plan => (
             <option key={plan.name} value={plan.name}>
               {`${plan.name} - $${plan.price}`}
@@ -33,7 +33,7 @@ const PlanDropdowns = ({ response, register, watch }: Props) => {
       </div>
 
       <div className="form-control">
-        <label>Components:</label>
+        <label>Choose Add-Ons or Upgrades</label>
         <div className="checkbox-group">
           {components.map(component => (
             <div key={component.pricingEntryId} className="checkbox-item">

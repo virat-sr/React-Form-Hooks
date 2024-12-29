@@ -4,6 +4,7 @@ import PlanDropdowns from './PlanDropDowns';
 import { response } from "../data/response";
 import { FormValues } from '../types/form';
 
+
 const YoutubeForm = () => {
   const form = useForm<FormValues>();
   const { register, control, handleSubmit, formState, watch, reset} = form;
@@ -84,12 +85,13 @@ const YoutubeForm = () => {
           </select>
           <p className="error">{errors.social?.message}</p>
         </div>
-
+        <div className="form-control">    
         <PlanDropdowns 
           response={response} 
           register={register}
           watch={watch}
         />
+        </div>
 
         <button>Submit</button>
         <button onClick={() => reset()}>Reset</button>
