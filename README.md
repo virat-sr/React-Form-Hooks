@@ -1,50 +1,93 @@
-# React + TypeScript + Vite
+# React Form Hooks Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive demonstration of form handling in React using React Hook Form, TypeScript, and Vite. This project showcases various form controls, validation, and dynamic form elements with a focus on membership plan selection and add-ons.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Form validation with React Hook Form
+- TypeScript integration
+- Dynamic dropdown menus
+- Checkbox groups for add-ons
+- Form state management
+- Development tools integration
+- Responsive styling
+- Reset functionality
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React 18.3
+- TypeScript
+- Vite
+- React Hook Form
+- @hookform/devtools
+- ESLint
+- SWC
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Getting Started
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Clone the repository
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. Start the development server:
+
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Form Features
+
+### Basic Form Fields
+- Username input with validation
+- Email input with pattern validation
+- Channel name input
+- Social media platform selection
+
+### Membership Plans
+The form includes a dynamic membership plan selection system with:
+- Multiple plan options (Basic, Premium, Family)
+- Dynamic pricing display
+- Customizable add-ons and upgrades
+- Checkbox-based selection for components
+
+## Styling
+
+The project includes a clean, responsive design with:
+- Centered layout
+- Consistent form control spacing
+- Error message styling
+- Checkbox group layouts
+- Dark/Light theme support
+
+## Development Tools
+
+### Available Scripts
+
+
+
+### Development Features
+- Hot Module Replacement (HMR)
+- React Hook Form DevTools integration
+- TypeScript type checking
+- ESLint configuration for React
+
+## Type Definitions
+
+The project uses TypeScript interfaces for type safety:
+
+- FormValues: Defines the structure of form data
+- PricingDetail: Defines the structure of pricing components
+- ServicePlan: Defines the structure of service plans
+- Props: Defines component prop types
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the MIT License.

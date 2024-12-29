@@ -61,7 +61,6 @@ const YoutubeForm = () => {
           />
           <p className="error">{errors.username?.message}</p>
         </div>
-
         <div className="form-control">
           <label htmlFor="channel">Channel</label>
           <input
