@@ -1,4 +1,4 @@
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import PlanDropdowns from './PlanDropDowns';
 import { response } from "../data/response";
@@ -18,11 +18,6 @@ const YoutubeForm = () => {
   ];
   // const { name, ref, onChange, onBlur} = register('username')
    
- const {fields} = useFieldArray( {
-  name: 'phNumbers',
-  control
- }
-  )
 
   const onSubmit = (data: FormValues) => {
     //handleSubmit destructure from form
