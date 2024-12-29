@@ -6,7 +6,7 @@ import { FormValues } from '../types/form';
 
 const YoutubeForm = () => {
   const form = useForm<FormValues>();
-  const { register, control, handleSubmit, formState, watch } = form;
+  const { register, control, handleSubmit, formState, watch, reset} = form;
   const { errors } = formState;
   const socialOptions = [
     "Twitter",
@@ -92,6 +92,7 @@ const YoutubeForm = () => {
         />
 
         <button>Submit</button>
+        <button onClick={() => reset()}>Reset</button>
         <DevTool control={control} />
       </form>
     </div>

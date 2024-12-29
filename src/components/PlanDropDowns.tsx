@@ -3,7 +3,6 @@ import { Props } from '../types/form';
 
 const PlanDropdowns = ({ response, register, watch }: Props) => {
   const selectedPlan = watch('servicePlan');
-  const selectedComponents = watch('components') || [];
 
   const servicePlans = response.map(plan => {
     const basePricing = plan.pricingDetails.find(detail => detail.serviceComponent);
