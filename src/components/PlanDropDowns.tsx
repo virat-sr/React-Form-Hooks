@@ -3,6 +3,8 @@ import { Props } from '../types/form';
 
 const PlanDropdowns = ({ response, register, watch }: Props) => {
   const selectedPlan = watch('servicePlan');
+  const selectedComponents = watch('components') || [];
+
 
   const servicePlans = response.map(plan => {
     const basePricing = plan.pricingDetails.find(detail => detail.serviceComponent);
@@ -17,6 +19,17 @@ const PlanDropdowns = ({ response, register, watch }: Props) => {
         .find(p => p.servicePlanName === selectedPlan)
         ?.pricingDetails.filter(detail => !detail.serviceComponent) || []
     : [];
+  
+  const calculateTotalPrice = () => {
+    const basePlan = servicePlans.find(plan => plan.name === selectedPlan);
+    const basePrice = basePlan?.price || 0;
+    
+    const addOnsPrice = components
+      .filter(comp => selectedComponents.includes(String(comp.pricingEntryId)))
+      .reduce((sum, comp) => sum + (comp.componentPrice || 0), 0);
+    
+    return (basePrice + addOnsPrice) || 0;
+  };
 
   return (
     <>
@@ -50,6 +63,15 @@ const PlanDropdowns = ({ response, register, watch }: Props) => {
           ))}
         </div>
       </div>
+
+   
+        <div className="form-control">
+          <label>Total Price</label>
+          <div className="price-display">
+            ${calculateTotalPrice().toFixed(2)}
+          </div>
+        </div>
+   
     </>
   );
 };
