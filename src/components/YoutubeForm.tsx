@@ -1,23 +1,21 @@
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import PlanDropdowns from './PlanDropDowns';
+import PlanDropdowns from "./PlanDropDowns";
 import { response } from "../data/response";
-import { FormValues } from '../types/form';
-
+import { FormValues } from "../types/form";
 
 const YoutubeForm = () => {
   const form = useForm<FormValues>();
-  const { register, control, handleSubmit, formState, watch, reset} = form;
+  const { register, control, handleSubmit, formState, watch, reset } = form;
   const { errors } = formState;
   const socialOptions = [
     "Twitter",
     "Facebook",
     "Instagram",
     "YouTube",
-    "LinkedIn"
+    "LinkedIn",
   ];
   // const { name, ref, onChange, onBlur} = register('username')
-   
 
   const onSubmit = (data: FormValues) => {
     //handleSubmit destructure from form
@@ -69,7 +67,9 @@ const YoutubeForm = () => {
         </div>
         <div className="form-control">
           <label htmlFor="social">Social Media</label>
-          <select {...register("social", { required: "Please select a platform" })}>
+          <select
+            {...register("social", { required: "Please select a platform" })}
+          >
             <option value="">Select a platform</option>
             {socialOptions.map((platform) => (
               <option key={platform} value={platform}>
@@ -79,12 +79,12 @@ const YoutubeForm = () => {
           </select>
           <p className="error">{errors.social?.message}</p>
         </div>
-        <div className="form-control">    
-        <PlanDropdowns 
-          response={response} 
-          register={register}
-          watch={watch}
-        />
+        <div className="form-control">
+          <PlanDropdowns
+            response={response}
+            register={register}
+            watch={watch}
+          />
         </div>
 
         <button>Submit</button>
