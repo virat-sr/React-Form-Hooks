@@ -55,12 +55,12 @@ const YoutubeForm = () => {
           <p className="error">{errors.username?.message}</p>
         </div>
         <div className="form-control">
-          <label htmlFor="channel">Channel</label>
+          <label htmlFor="age">Age</label>
           <input
             type="text"
-            id="channel"
-            {...register("channel", {
-              required: "Channel is required",
+            id="age"
+            {...register("age", {
+              required: "age is required",
             })}
           />
           <p className="error">{errors.username?.message}</p>

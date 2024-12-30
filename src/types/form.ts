@@ -3,7 +3,7 @@ import { UseFormRegister, UseFormWatch } from "react-hook-form";
 export type FormValues = {
   username: string;
   email: string;
-  channel: string;
+  age: string;
   phoneNumbers: string[];
   phNumbers: [{ number: string }];
   social: string;

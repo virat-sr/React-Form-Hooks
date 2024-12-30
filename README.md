@@ -43,7 +43,7 @@ A comprehensive demonstration of form handling in React using React Hook Form, T
 ### Basic Form Fields
 - Username input with validation
 - Email input with pattern validation
-- Channel name input
+- Age input
 - Social media platform selection
 
 ### Membership Plans
